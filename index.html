@@ -10,11 +10,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Patua+One&display=swap" rel="stylesheet">
 
     <style>
-        /* --- BRAND DNA VARIABLES (From Screenshot) --- */
+        /* --- BRAND DNA VARIABLES --- */
         :root {
             --primary-black: #080a0c;
             --secondary-charcoal: #2a2a2a;
-            --accent-gold: #c4b568; /* Extracted from Tagline text */
+            --accent-gold: #c4b568;
             --text-grey: #888888;
             --white: #ffffff;
         }
@@ -30,16 +30,16 @@
         }
 
         h1, h2, h3 {
-            font-family: 'Patua One', serif; /* The Brand Font */
+            font-family: 'Patua One', serif;
             letter-spacing: 1px;
         }
 
-        /* --- HEADER (Mayteck Style: Clean Flexbox) --- */
+        /* --- HEADER UPDATED FOR LOGO IMAGE --- */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 5%;
+            padding: 15px 5%;
             background: rgba(8, 10, 12, 0.95);
             border-bottom: 1px solid var(--secondary-charcoal);
             position: sticky;
@@ -47,19 +47,32 @@
             z-index: 100;
         }
 
-        .logo {
+        /* Container to hold image and text side-by-side */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px; /* Space between image and text */
+        }
+
+        .logo-img {
+            height: 70px; /* Adjust height to fit nicely */
+            width: auto;
+        }
+
+        .logo-text {
             font-size: 1.5rem;
             color: var(--white);
             text-transform: uppercase;
+            line-height: 1.1;
         }
-        .logo span { color: var(--accent-gold); }
+        .logo-text span { color: var(--accent-gold); display: block; font-size: 1.1rem;}
 
         .nav-btn {
             text-decoration: none;
             color: var(--primary-black);
             background: var(--accent-gold);
             padding: 10px 25px;
-            border-radius: 50px; /* Pill Shape */
+            border-radius: 50px;
             font-weight: 700;
             text-transform: uppercase;
             font-size: 0.9rem;
@@ -72,11 +85,12 @@
             background: #fff;
         }
 
-        /* --- HERO SECTION (Industrial Vibe) --- */
+        /* --- HERO SECTION UPDATED WITH CLIENT IMAGE --- */
         .hero {
             height: 85vh;
-            background: linear-gradient(rgba(8, 10, 12, 0.7), rgba(8, 10, 12, 0.4)), 
-                        url('https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            /* Using their real image URL */
+            background: linear-gradient(rgba(8, 10, 12, 0.75), rgba(8, 10, 12, 0.5)), 
+                        url('http://www.coastlineautocarehb.com/uploads/1/2/4/4/124419885/background-images/375272966.jpg');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -94,7 +108,7 @@
 
         .hero-content p {
             font-size: 1.4rem;
-            color: var(--accent-gold); /* The Tagline Color */
+            color: var(--accent-gold);
             font-style: italic;
             margin-bottom: 30px;
         }
@@ -108,7 +122,7 @@
             font-family: 'Patua One', serif;
             font-size: 1.2rem;
             text-decoration: none;
-            border-radius: 4px; /* More industrial/square than Mayteck pills */
+            border-radius: 4px;
             transition: 0.3s;
         }
 
@@ -118,7 +132,7 @@
             color: var(--primary-black);
         }
 
-        /* --- VALUES GRID (From Screenshot) --- */
+        /* --- VALUES GRID --- */
         .values {
             padding: 80px 5%;
             background: var(--secondary-charcoal);
@@ -163,7 +177,10 @@
 <body>
 
     <header>
-        <div class="logo">Coastline <span>Auto Care</span></div>
+        <div class="logo-container">
+            <img src="logo.png" alt="Coastline Auto Care Logo" class="logo-img">
+            <div class="logo-text">Coastline <span>Auto Care</span></div>
+        </div>
         <a href="tel:7145550123" class="nav-btn">Call for Service</a>
     </header>
 
