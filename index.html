@@ -34,7 +34,7 @@
             letter-spacing: 1px;
         }
 
-        /* --- HEADER UPDATED FOR LOGO IMAGE --- */
+        /* --- HEADER --- */
         header {
             display: flex;
             justify-content: space-between;
@@ -47,15 +47,15 @@
             z-index: 100;
         }
 
-        /* Container to hold image and text side-by-side */
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 15px; /* Space between image and text */
+            gap: 15px; 
         }
 
+        /* Ensure you saved the logo as 'logo.png' in the same folder! */
         .logo-img {
-            height: 70px; /* Adjust height to fit nicely */
+            height: 70px;
             width: auto;
         }
 
@@ -85,12 +85,12 @@
             background: #fff;
         }
 
-        /* --- HERO SECTION UPDATED WITH CLIENT IMAGE --- */
+        /* --- HERO SECTION (LOCAL IMAGE) --- */
         .hero {
             height: 85vh;
-            /* Using their real image URL */
+            /* NOW LOOKING FOR LOCAL FILE 'hero-bg.jpg' */
             background: linear-gradient(rgba(8, 10, 12, 0.75), rgba(8, 10, 12, 0.5)), 
-                        url('http://www.coastlineautocarehb.com/uploads/1/2/4/4/124419885/background-images/375272966.jpg');
+                        url('hero-bg.jpg');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -98,6 +98,11 @@
             justify-content: center;
             text-align: center;
             padding: 20px;
+        }
+
+        /* Fallback if user hasn't saved the image yet */
+        .hero {
+            background-color: #111; /* Dark grey fallback */
         }
 
         .hero-content h1 {
