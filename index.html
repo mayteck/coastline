@@ -73,6 +73,7 @@
             justify-content: center;
             border: 2px solid var(--accent-gold);
             overflow: hidden;
+            flex-shrink: 0; /* Prevents squishing on small screens */
         }
 
         .logo-img { width: 90%; height: auto; }
@@ -98,11 +99,10 @@
         }
         .nav-btn:hover { background: #fff; transform: translateY(-2px); }
 
-        /* --- HERO SECTION --- */
+        /* --- HERO SECTION (REFINED) --- */
         .hero {
             height: 80vh;
-            /* Uses local file 'hero-bg.jpg' */
-            background: linear-gradient(rgba(8, 10, 12, 0.75), rgba(8, 10, 12, 0.6)), 
+            background: linear-gradient(rgba(8, 10, 12, 0.8), rgba(8, 10, 12, 0.6)), 
                         url('hero-bg.jpg');
             background-size: cover;
             background-position: center;
@@ -114,16 +114,19 @@
         }
 
         .hero-content h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            margin-bottom: 15px;
+            font-size: clamp(2rem, 5vw, 4.5rem); /* Responsive scaling */
+            margin-bottom: 10px;
             text-shadow: 0 4px 10px rgba(0,0,0,0.8);
+            line-height: 1.1;
         }
 
         .hero-content p {
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             color: var(--accent-gold);
-            font-style: italic;
-            margin-bottom: 30px;
+            font-weight: 300;
+            letter-spacing: 1px;
+            margin-bottom: 40px;
+            margin-top: 10px;
         }
 
         .cta-button {
@@ -146,7 +149,7 @@
         .split-layout {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            gap: 60px;
             align-items: center;
         }
 
@@ -157,89 +160,108 @@
             min-height: 300px; 
             background: #333; 
             object-fit: cover;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
 
         .about-text h2 { font-size: 2.5rem; margin-bottom: 20px; }
         .about-text p { margin-bottom: 20px; color: var(--text-grey); font-size: 1.1rem; }
 
-        /* --- SERVICES SECTION --- */
+        /* --- SERVICES SECTION (REFINED) --- */
         .services-section { background-color: var(--primary-black); }
         
         .section-header { text-align: center; margin-bottom: 60px; }
         .section-header h2 { font-size: 2.5rem; }
         .section-header .divider { width: 60px; height: 3px; background: var(--accent-gold); margin: 15px auto; }
 
+        /* UPGRADED BANNER: More padding, cleaner look */
         .alert-box {
-            background: rgba(196, 181, 104, 0.1);
+            background: rgba(196, 181, 104, 0.08);
             border: 1px solid var(--accent-gold);
             color: var(--accent-gold);
-            padding: 15px;
+            padding: 25px 40px; /* More breathing room */
             text-align: center;
-            border-radius: 5px;
-            margin-bottom: 40px;
+            border-radius: 8px;
+            margin: 0 auto 50px auto; /* Centered with spacing below */
+            max-width: 900px;
             font-weight: bold;
+            letter-spacing: 0.5px;
+            line-height: 1.4;
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Slightly wider cards */
+            gap: 25px;
         }
 
         .service-card {
-            background: rgba(255,255,255,0.05);
-            padding: 30px;
+            background: rgba(255,255,255,0.03);
+            padding: 35px 30px;
             border-left: 3px solid var(--accent-gold);
-            transition: 0.3s;
+            transition: all 0.3s ease;
         }
-        .service-card:hover { background: rgba(255,255,255,0.1); }
-        .service-card i { font-size: 2rem; color: var(--accent-gold); margin-bottom: 15px; }
-        .service-card h3 { margin-bottom: 10px; font-size: 1.2rem; }
+        .service-card:hover { 
+            background: rgba(255,255,255,0.08); 
+            transform: translateY(-5px);
+        }
+        
+        /* FIXED ICON ALIGNMENT */
+        .service-card i { 
+            font-size: 2rem; 
+            color: var(--accent-gold); 
+            margin-bottom: 20px;
+            display: inline-block;
+            width: 40px; /* Ensures all icons take up same width */
+            text-align: left;
+        }
+        
+        .service-card h3 { margin-bottom: 12px; font-size: 1.25rem; }
+        .service-card p { font-size: 0.95rem; color: var(--text-grey); }
 
-        /* --- FOOTER / CONTACT / MAP (REDESIGNED) --- */
+        /* --- FOOTER / CONTACT / MAP --- */
         footer {
             background: #000;
             border-top: 4px solid var(--accent-gold);
-            padding: 60px 0 20px;
+            padding: 70px 0 30px;
         }
 
         .footer-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr; /* Split 50/50 for Map and Info */
-            gap: 40px;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
             margin-bottom: 40px;
         }
 
-        .footer-col h4 { font-size: 1.5rem; margin-bottom: 20px; color: var(--white); }
-        .footer-col p { color: var(--text-grey); display: block; margin-bottom: 10px; }
+        .footer-col h4 { font-size: 1.5rem; margin-bottom: 25px; color: var(--white); }
+        .footer-col p { color: var(--text-grey); display: block; margin-bottom: 15px; font-size: 1.05rem;}
         
-        .hours-table { width: 100%; max-width: 300px; }
-        .hours-table td { padding: 5px 0; border-bottom: 1px solid #222; color: var(--text-grey); }
+        .hours-table { width: 100%; max-width: 320px; margin-top: 10px;}
+        .hours-table td { padding: 8px 0; border-bottom: 1px solid #222; color: var(--text-grey); }
         .hours-table tr:last-child td { border: none; }
-        .hours-table .day { color: var(--white); font-weight: bold; }
+        .hours-table .day { color: var(--white); font-weight: bold; width: 140px;}
 
         /* Map styling */
         .map-frame {
             width: 100%;
-            height: 300px;
-            border: 2px solid var(--secondary-charcoal);
+            height: 350px;
+            border: 1px solid #333;
             border-radius: 8px;
-            filter: grayscale(20%); /* Makes map blend in nicely */
+            filter: grayscale(100%) invert(92%) contrast(83%); /* "Dark Mode" Map Hack */
         }
 
         .copyright {
             text-align: center;
             border-top: 1px solid #222;
-            padding-top: 20px;
+            padding-top: 30px;
             color: #555;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
         }
 
         /* MOBILE FIXES */
-        @media (max-width: 768px) {
+        @media (max-width: 850px) {
             .split-layout { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: 1fr; } /* Stack map on mobile */
-            .hero-content h1 { font-size: 2.5rem; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .hero-content h1 { font-size: 2.8rem; }
             .logo-text { display: none; } 
         }
     </style>
@@ -258,8 +280,8 @@
 
     <section class="hero">
         <div class="container hero-content">
-            <h1>We're Not Your<br>Average Shop.</h1>
-            <p>"Servicing All Makes & Models Since 1981"</p>
+            <h1>Coastline Auto Care H.B.</h1>
+            <p>"We're Not Your Average Shop"</p>
             <a href="#contact" class="cta-button">Make An Appointment</a>
         </div>
     </section>
@@ -269,10 +291,10 @@
             <div class="about-text">
                 <h2 class="text-gold">Welcome to the Family</h2>
                 <p>We have 3 generations of customers that have become our family. Our customers' safety is our highest priority and we take that seriously.</p>
-                <p>Our technicians are the absolute best at diagnosing the problem right the first time, keeping downtime to a minimum. We take pride in our work and enjoy what we do. We're Coastline Auto Care H.B.</p>
-                <div style="margin-top: 20px;">
-                    <span style="margin-right: 20px;"><i class="fas fa-check text-gold"></i> Est. 1981</span>
-                    <span><i class="fas fa-check text-gold"></i> Safety First</span>
+                <p>Our technicians are the absolute best at diagnosing the problem right the first time, keeping downtime to a minimum. We take pride in our work and enjoy what we do.</p>
+                <div style="margin-top: 30px;">
+                    <span style="margin-right: 25px; display:inline-block;"><i class="fas fa-check-circle text-gold"></i> Est. 1981</span>
+                    <span style="display:inline-block;"><i class="fas fa-check-circle text-gold"></i> Safety First</span>
                 </div>
             </div>
             <div class="about-image">
@@ -287,7 +309,8 @@
                 <h2>Our Services</h2>
                 <div class="divider"></div>
                 <div class="alert-box">
-                    <i class="fas fa-credit-card"></i> FINANCING AVAILABLE UP TO $7500 & ACCEPTING FLEET CARDS
+                    <i class="fas fa-credit-card" style="margin-right: 10px;"></i> 
+                    FINANCING AVAILABLE UP TO $7500 & ACCEPTING FLEET CARDS
                 </div>
             </div>
             
@@ -333,12 +356,12 @@
                 <div class="footer-col">
                     <h4>Visit Us</h4>
                     <p>
-                        <i class="fas fa-map-marker-alt text-gold" style="width: 20px;"></i> 
+                        <i class="fas fa-map-marker-alt text-gold" style="width: 25px; text-align:center;"></i> 
                         17092 Palmdale Lane Unit B<br>
-                        Huntington Beach, CA 92647
+                        <span style="margin-left: 29px;">Huntington Beach, CA 92647</span>
                     </p>
                     <p>
-                        <i class="fas fa-phone text-gold" style="width: 20px;"></i> 
+                        <i class="fas fa-phone text-gold" style="width: 25px; text-align:center;"></i> 
                         <a href="tel:7148421596" style="display:inline; color:#a0a0a0;">714.842.1596</a>
                     </p>
                     <br>
@@ -348,15 +371,18 @@
                         <tr><td class="day">Saturday</td><td>8:00 AM - 3:00 PM</td></tr>
                         <tr><td class="day">Sunday</td><td>Closed</td></tr>
                     </table>
+                    
+                    <br>
+                    <a href="https://maps.google.com/?q=17092+Palmdale+Lane+Unit+B+Huntington+Beach+CA" target="_blank" class="cta-button" style="padding: 10px 25px; font-size: 0.9rem;">Get Directions</a>
                 </div>
 
                 <div class="footer-col">
-                    <iframe class="map-frame" src="https://maps.google.com/maps?q=17092+Palmdale+Lane+Unit+B,+Huntington+Beach,+CA+92647&hl=en&z=14&amp;output=embed" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe class="map-frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3316.678972986423!2d-117.99042568435777!3d33.702956980702675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dd266055555555%3A0x123456789abc!2s17092%20Palmdale%20Ln%2C%20Huntington%20Beach%2C%20CA%2092647!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
                 </div>
 
             </div>
             <div class="copyright">
-                © 2026 Coastline Auto Care H.B.
+                © 2026 Coastline Auto Care H.B. | Built by Mayteck C.S.
             </div>
         </div>
     </footer>
