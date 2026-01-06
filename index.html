@@ -8,14 +8,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Patua+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
         /* --- BRAND DNA VARIABLES --- */
         :root {
             --primary-black: #080a0c;
-            --secondary-charcoal: #2a2a2a;
+            --secondary-charcoal: #1a1c1e;
             --accent-gold: #c4b568;
-            --text-grey: #888888;
+            --text-grey: #a0a0a0;
             --white: #ffffff;
         }
 
@@ -29,10 +30,19 @@
             line-height: 1.6;
         }
 
-        h1, h2, h3 {
+        h1, h2, h3, h4 {
             font-family: 'Patua One', serif;
             letter-spacing: 1px;
         }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .section-padding { padding: 80px 0; }
+        .text-gold { color: var(--accent-gold); }
 
         /* --- HEADER --- */
         header {
@@ -53,19 +63,27 @@
             gap: 15px; 
         }
 
-        /* Ensure you saved the logo as 'logo.png' in the same folder! */
-        .logo-img {
-            height: 70px;
-            width: auto;
+        .logo-badge {
+            width: 60px;
+            height: 60px;
+            background-color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--accent-gold);
+            overflow: hidden;
         }
 
+        .logo-img { width: 90%; height: auto; }
+
         .logo-text {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             color: var(--white);
             text-transform: uppercase;
             line-height: 1.1;
         }
-        .logo-text span { color: var(--accent-gold); display: block; font-size: 1.1rem;}
+        .logo-text span { color: var(--accent-gold); display: block; font-size: 0.9rem;}
 
         .nav-btn {
             text-decoration: none;
@@ -78,18 +96,13 @@
             font-size: 0.9rem;
             transition: all 0.3s ease;
         }
+        .nav-btn:hover { background: #fff; transform: translateY(-2px); }
 
-        .nav-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 0 15px rgba(196, 181, 104, 0.5);
-            background: #fff;
-        }
-
-        /* --- HERO SECTION (LOCAL IMAGE) --- */
+        /* --- HERO SECTION --- */
         .hero {
-            height: 85vh;
-            /* NOW LOOKING FOR LOCAL FILE 'hero-bg.jpg' */
-            background: linear-gradient(rgba(8, 10, 12, 0.75), rgba(8, 10, 12, 0.5)), 
+            height: 80vh;
+            /* Uses local file 'hero-bg.jpg' */
+            background: linear-gradient(rgba(8, 10, 12, 0.75), rgba(8, 10, 12, 0.6)), 
                         url('hero-bg.jpg');
             background-size: cover;
             background-position: center;
@@ -100,19 +113,14 @@
             padding: 20px;
         }
 
-        /* Fallback if user hasn't saved the image yet */
-        .hero {
-            background-color: #111; /* Dark grey fallback */
-        }
-
         .hero-content h1 {
-            font-size: 3.5rem;
+            font-size: clamp(2.5rem, 5vw, 4rem);
             margin-bottom: 15px;
             text-shadow: 0 4px 10px rgba(0,0,0,0.8);
         }
 
         .hero-content p {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             color: var(--accent-gold);
             font-style: italic;
             margin-bottom: 30px;
@@ -130,52 +138,109 @@
             border-radius: 4px;
             transition: 0.3s;
         }
+        .cta-button:hover { background: var(--accent-gold); border-color: var(--accent-gold); color: var(--primary-black); }
 
-        .cta-button:hover {
-            background: var(--accent-gold);
-            border-color: var(--accent-gold);
-            color: var(--primary-black);
+        /* --- ABOUT SECTION --- */
+        .about-section { background-color: var(--secondary-charcoal); }
+
+        .split-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
         }
 
-        /* --- VALUES GRID --- */
-        .values {
-            padding: 80px 5%;
-            background: var(--secondary-charcoal);
+        .about-image img {
+            width: 100%;
+            border-radius: 8px;
+            border-bottom: 4px solid var(--accent-gold);
+            min-height: 300px; 
+            background: #333; 
+            object-fit: cover;
         }
 
-        .section-title {
+        .about-text h2 { font-size: 2.5rem; margin-bottom: 20px; }
+        .about-text p { margin-bottom: 20px; color: var(--text-grey); font-size: 1.1rem; }
+
+        /* --- SERVICES SECTION --- */
+        .services-section { background-color: var(--primary-black); }
+        
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header h2 { font-size: 2.5rem; }
+        .section-header .divider { width: 60px; height: 3px; background: var(--accent-gold); margin: 15px auto; }
+
+        .alert-box {
+            background: rgba(196, 181, 104, 0.1);
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            padding: 15px;
             text-align: center;
-            margin-bottom: 50px;
-            font-size: 2.5rem;
+            border-radius: 5px;
+            margin-bottom: 40px;
+            font-weight: bold;
         }
-        .section-title span { border-bottom: 3px solid var(--accent-gold); }
 
-        .grid {
+        .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            gap: 20px;
         }
 
-        .card {
-            background: var(--primary-black);
+        .service-card {
+            background: rgba(255,255,255,0.05);
             padding: 30px;
-            border-top: 4px solid var(--accent-gold);
-            text-align: center;
+            border-left: 3px solid var(--accent-gold);
             transition: 0.3s;
         }
-        
-        .card:hover { transform: translateY(-5px); }
+        .service-card:hover { background: rgba(255,255,255,0.1); }
+        .service-card i { font-size: 2rem; color: var(--accent-gold); margin-bottom: 15px; }
+        .service-card h3 { margin-bottom: 10px; font-size: 1.2rem; }
 
-        .card h3 { margin-bottom: 15px; font-size: 1.5rem; }
-        .card p { color: var(--text-grey); font-size: 0.95rem; }
-
-        /* --- FOOTER --- */
+        /* --- FOOTER / CONTACT / MAP (REDESIGNED) --- */
         footer {
+            background: #000;
+            border-top: 4px solid var(--accent-gold);
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Split 50/50 for Map and Info */
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 { font-size: 1.5rem; margin-bottom: 20px; color: var(--white); }
+        .footer-col p { color: var(--text-grey); display: block; margin-bottom: 10px; }
+        
+        .hours-table { width: 100%; max-width: 300px; }
+        .hours-table td { padding: 5px 0; border-bottom: 1px solid #222; color: var(--text-grey); }
+        .hours-table tr:last-child td { border: none; }
+        .hours-table .day { color: var(--white); font-weight: bold; }
+
+        /* Map styling */
+        .map-frame {
+            width: 100%;
+            height: 300px;
+            border: 2px solid var(--secondary-charcoal);
+            border-radius: 8px;
+            filter: grayscale(20%); /* Makes map blend in nicely */
+        }
+
+        .copyright {
             text-align: center;
-            padding: 40px;
-            color: var(--text-grey);
-            font-size: 0.9rem;
-            border-top: 1px solid var(--secondary-charcoal);
+            border-top: 1px solid #222;
+            padding-top: 20px;
+            color: #555;
+            font-size: 0.8rem;
+        }
+
+        /* MOBILE FIXES */
+        @media (max-width: 768px) {
+            .split-layout { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; } /* Stack map on mobile */
+            .hero-content h1 { font-size: 2.5rem; }
+            .logo-text { display: none; } 
         }
     </style>
 </head>
@@ -183,44 +248,117 @@
 
     <header>
         <div class="logo-container">
-            <img src="logo.png" alt="Coastline Auto Care Logo" class="logo-img">
-            <div class="logo-text">Coastline <span>Auto Care</span></div>
+            <div class="logo-badge">
+                <img src="logo.png" alt="Coastline Auto Care Logo" class="logo-img">
+            </div>
+            <div class="logo-text">Coastline <span>Auto Care H.B.</span></div>
         </div>
-        <a href="tel:7145550123" class="nav-btn">Call for Service</a>
+        <a href="tel:7148421596" class="nav-btn"><i class="fas fa-phone"></i> 714.842.1596</a>
     </header>
 
     <section class="hero">
-        <div class="hero-content">
-            <h1>Mechanical Precision.</h1>
-            <p>"Experience the best in service and repair."</p>
-            <a href="#" class="cta-button">Book Appointment</a>
+        <div class="container hero-content">
+            <h1>We're Not Your<br>Average Shop.</h1>
+            <p>"Servicing All Makes & Models Since 1981"</p>
+            <a href="#contact" class="cta-button">Make An Appointment</a>
         </div>
     </section>
 
-    <section class="values">
-        <h2 class="section-title"><span>Since 1981</span></h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Safety</h3>
-                <p>Our top priority. We ensure every vehicle leaves safer than it arrived.</p>
+    <section class="section-padding about-section" id="about">
+        <div class="container split-layout">
+            <div class="about-text">
+                <h2 class="text-gold">Welcome to the Family</h2>
+                <p>We have 3 generations of customers that have become our family. Our customers' safety is our highest priority and we take that seriously.</p>
+                <p>Our technicians are the absolute best at diagnosing the problem right the first time, keeping downtime to a minimum. We take pride in our work and enjoy what we do. We're Coastline Auto Care H.B.</p>
+                <div style="margin-top: 20px;">
+                    <span style="margin-right: 20px;"><i class="fas fa-check text-gold"></i> Est. 1981</span>
+                    <span><i class="fas fa-check text-gold"></i> Safety First</span>
+                </div>
             </div>
-            <div class="card">
-                <h3>Experience</h3>
-                <p>Family-owned and operating in Huntington Beach for over 40 years.</p>
-            </div>
-            <div class="card">
-                <h3>Quality</h3>
-                <p>Full-service maintenance for all makes and models, foreign and domestic.</p>
-            </div>
-            <div class="card">
-                <h3>Affordability</h3>
-                <p>High-quality repairs at fair prices. We treat you like neighbors, not numbers.</p>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Inside the shop">
             </div>
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2026 Coastline Auto Care. Proudly serving HB since '81.</p>
+    <section class="section-padding services-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Services</h2>
+                <div class="divider"></div>
+                <div class="alert-box">
+                    <i class="fas fa-credit-card"></i> FINANCING AVAILABLE UP TO $7500 & ACCEPTING FLEET CARDS
+                </div>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-calendar-check"></i>
+                    <h3>Routine Maintenance</h3>
+                    <p>Scheduled service to keep your warranty valid and engine running.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-car-battery"></i>
+                    <h3>Smog & Check Engine</h3>
+                    <p>Expert diagnostics for warning lights and emissions testing.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-ring"></i>
+                    <h3>Tires & Alignment</h3>
+                    <p>Full tire service and precision alignment for safety.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-snowflake"></i>
+                    <h3>A/C & Climate Control</h3>
+                    <p>Keep your cabin comfortable year-round.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-car-crash"></i>
+                    <h3>Brakes & ABS</h3>
+                    <p>Brake pads, rotors, and anti-lock system repair.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-search"></i>
+                    <h3>Pre-Purchase Inspections</h3>
+                    <p>Don't buy a lemon. We inspect used cars before you buy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                
+                <div class="footer-col">
+                    <h4>Visit Us</h4>
+                    <p>
+                        <i class="fas fa-map-marker-alt text-gold" style="width: 20px;"></i> 
+                        17092 Palmdale Lane Unit B<br>
+                        Huntington Beach, CA 92647
+                    </p>
+                    <p>
+                        <i class="fas fa-phone text-gold" style="width: 20px;"></i> 
+                        <a href="tel:7148421596" style="display:inline; color:#a0a0a0;">714.842.1596</a>
+                    </p>
+                    <br>
+                    <h4>Hours</h4>
+                    <table class="hours-table">
+                        <tr><td class="day">Monday - Friday</td><td>8:00 AM - 5:00 PM</td></tr>
+                        <tr><td class="day">Saturday</td><td>8:00 AM - 3:00 PM</td></tr>
+                        <tr><td class="day">Sunday</td><td>Closed</td></tr>
+                    </table>
+                </div>
+
+                <div class="footer-col">
+                    <iframe class="map-frame" src="https://maps.google.com/maps?q=17092+Palmdale+Lane+Unit+B,+Huntington+Beach,+CA+92647&hl=en&z=14&amp;output=embed" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+
+            </div>
+            <div class="copyright">
+                © 2026 Coastline Auto Care H.B.
+            </div>
+        </div>
     </footer>
 
 </body>
